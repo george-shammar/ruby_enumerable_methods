@@ -6,9 +6,4 @@ module Enumerable
     end
 end
 
-my_array = [3, 4, 7, 2, 9]
-
- my_array.my_each do |item|
-    puts item * 2
-end
     
