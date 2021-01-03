@@ -16,10 +16,12 @@ module Enumerable
     end
 end
 
-# my_array = [2, 3, 4, 5, 99, 7, 78, 9, 10]
-
-# my_array.my_each_with_index do |item, i|
-#     if i.even?
-#         puts item * 2
-# end
-# end
+module Enumerable
+    def my_select
+        array = []
+        my_each do |item|
+            array.push(item) if yield(item)
+            end
+        array
+    end
+end
