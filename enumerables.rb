@@ -25,3 +25,16 @@ module Enumerable
         array
     end
 end
+
+module Enumerable
+    def my_all?
+        arr = to_a
+            arr.my_each do |item|
+           if yield(item)== true
+            return true
+           else
+            return false
+           end 
+        end
+    end
+end
