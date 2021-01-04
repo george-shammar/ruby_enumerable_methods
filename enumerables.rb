@@ -18,9 +18,8 @@ end
 
 module Enumerable
     def my_select
-        # arr[item]
         array = []
-        arr.my_each do |item|
+        my_each do |item|
             array.push(item) if yield(item)
             end
         array
