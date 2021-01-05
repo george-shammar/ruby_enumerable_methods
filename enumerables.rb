@@ -90,16 +90,6 @@ end
 
 #     puts array.my_count { |x| x > 200 }
 
-# module Enumerable
-#     def my_map
-#         arr = to_a
-#         arr.length.times do |object|
-#             fresh = (yield arr[object])
-#             return fresh
-#         end
-#     end
-# end
-
 module Enumerable
     def my_map(obj = nil)
         array = []
