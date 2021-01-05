@@ -1,22 +1,19 @@
+# rubocop:disable Style/CaseEquality cop
+
 module Enumerable
     def my_each(arr = to_a)
             arr.length.times do |object|
                 yield arr[object]
             end
     end
-end
 
-
-module Enumerable
     def my_each_with_index
         arr = to_a
         arr.length.times do |object|
             yield arr[object], object
         end 
     end
-end
 
-module Enumerable
     def my_select
         array = []
         my_each do |object|
@@ -24,9 +21,7 @@ module Enumerable
             end
         array
     end
-end
 
-module Enumerable
     def my_all?
         my_each do |object|
             if yield(object) == true
@@ -36,10 +31,8 @@ module Enumerable
            end 
         end
     end
-end
 
-module Enumerable
-    def my_any?
+def my_any?
          my_each do |i|
              if yield(i) == true
                 return true
@@ -47,12 +40,8 @@ module Enumerable
             end
     return false
 end
-end
 
- 
-
-module Enumerable
-    def my_none?
+def my_none?
        my_each do |object|
         if yield(object) == false
             return true
@@ -61,10 +50,8 @@ module Enumerable
         end
     end
 end
-end
 
-module Enumerable
-    def my_count
+def my_count
         number = 0
         arr = to_a
             if block_given?
@@ -76,9 +63,7 @@ module Enumerable
                 number
             end
     end
-end
 
-module Enumerable
     def my_map(obj = nil)
         array = []
         my_each do |i|
@@ -86,16 +71,13 @@ module Enumerable
         end
         array
       end
-    end
 
-module Enumerable
      def my_inject(accum = [0])
            my_each do |item|
              accum = yield(accum, item)
          end
         accum
      end
-end
 
 def multiply_els(arr)
        arr.my_inject(1) do |accum, item|
@@ -103,4 +85,14 @@ def multiply_els(arr)
     end
 end
 
+end
+# rubocop:enable Style/CaseEquality
+
 puts multiply_els([2,4,5])
+
+
+    my_proc = Proc.new { |x| x + 7 }
+
+    arr = [4, 16, 9]
+
+   puts arr.my_map(&my_proc)
