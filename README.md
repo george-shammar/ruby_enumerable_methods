@@ -24,3 +24,25 @@ It returns a new array after evaluating the block with the element as an argumen
 
 ### my_inject
 It passes each element and accumulate each sequentially.
+
+## Built With
+The project was built entirely with ruby.
+
+## Author
+
+### George Gbenle:
+
+    Github profile: @george-shammar
+    Twitter: @GeorgeShammar
+    linkedin: George Gbenle
+
+## Contributing
+
+Contributions and feature requests are welcome!
+
+Feel free to check the issues page.
+
+## Show your support
+
+Give a star if you like this project!
+
