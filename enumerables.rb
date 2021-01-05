@@ -97,3 +97,10 @@ module Enumerable
      end
 end
 
+def multiply_els(arr)
+       arr.my_inject(1) do |accum, item|
+        accum * item
+    end
+end
+
+puts multiply_els([2,4,5])
