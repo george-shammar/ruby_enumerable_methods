@@ -63,37 +63,20 @@ module Enumerable
 end
 end
 
-# module Enumerable
-#     def my_count
-#         number = 0
-#         length.times do
-#             number +=1
-#             if block_given?
-#                 my_each do |item|
-#                     if yield(item) == true
-#                     end
-#                 end
-#             end
-#         end
-#     end
-# end
-# module Enumerable
-# def my_count
-#     count = 0
-#     self.my_each { |i|
-#         if yield(i) == true
-#             count += 1
-#         end
-#     }
-#     count
-# end
-# end
-
-#     array = [3, 7, 5, 9, 43, 4, 2, 1, 3, 5, 9, 12, 34, 45, 67, 43, 56, 78]
-
-#     # puts array.my_count
-
-#     puts array.my_count { |x| x > 50 }
+module Enumerable
+    def my_count
+        number = 0
+        arr = to_a
+            if block_given?
+                my_each do |item|
+                    if yield(item) == true
+                        number += 1
+                    end
+                end
+                number
+            end
+    end
+end
 
 module Enumerable
     def my_map(obj = nil)
@@ -105,12 +88,12 @@ module Enumerable
       end
     end
 
-# module Enumerable
-#     def my_inject(accum = nil)
-#         my_each do |result, item|
-#             yield(result + accum)
-#         end
-#     end
-# end
+module Enumerable
+     def my_inject(accum = [0])
+           my_each do |item|
+             accum = yield(accum, item)
+         end
+        accum
+     end
+end
 
-# puts [3, 6, 10, 13].my_inject
