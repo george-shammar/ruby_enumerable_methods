@@ -1,12 +1,14 @@
 # rubocop:disable Style/CaseEquality cop
 
 module Enumerable
-    def my_each(arr = to_a)
+    #iterates through each element of an object and yields a block as specified
+    def my_each(arr = to_a) 
             arr.length.times do |object|
                 yield arr[object]
             end
     end
-
+    
+    # iterates through each element in an array or hash, and extracts the element, as well as the index and will transform both the element and its index based on the code block.
     def my_each_with_index
         arr = to_a
         arr.length.times do |object|
