@@ -38,24 +38,18 @@ module Enumerable
     end
 end
 
+module Enumerable
+    def my_any?
+         my_each do |i|
+             if yield(i) == true
+                return true
+             end
+            end
+    return false
+end
+end
 
-
-# module Enumerable
-#     def my_any?
-#         arr = to_a
-#         arr.my_each do |i|
-#             if yield(i) == true
-#                 return true
-#             else
-#                 return false
-#             end
-#         end
-#     end
-# end
-
-# enu1 = [10, 12, 18] 
-# res1 = enu1.my_any? { |num| num>13}  
-# puts res1 
+ 
 
 module Enumerable
     def my_none?
@@ -83,12 +77,23 @@ end
 #         end
 #     end
 # end
+# module Enumerable
+# def my_count
+#     count = 0
+#     self.my_each { |i|
+#         if yield(i) == true
+#             count += 1
+#         end
+#     }
+#     count
+# end
+# end
 
 #     array = [3, 7, 5, 9, 43, 4, 2, 1, 3, 5, 9, 12, 34, 45, 67, 43, 56, 78]
 
-#     puts array.my_count
+#     # puts array.my_count
 
-#     puts array.my_count { |x| x > 200 }
+#     puts array.my_count { |x| x > 50 }
 
 module Enumerable
     def my_map(obj = nil)
@@ -98,4 +103,14 @@ module Enumerable
         end
         array
       end
+    end
 
+# module Enumerable
+#     def my_inject(accum = nil)
+#         my_each do |result, item|
+#             yield(result + accum)
+#         end
+#     end
+# end
+
+# puts [3, 6, 10, 13].my_inject
