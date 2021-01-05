@@ -1,4 +1,4 @@
-# rubocop:disable Style/CaseEquality cop
+
 
 module Enumerable
     #iterates through each element of an object and yields a block as specified
