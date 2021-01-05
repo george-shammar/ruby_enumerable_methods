@@ -1,4 +1,4 @@
-
+# rubocop:disable Style/CaseEquality cop
 
 module Enumerable
     #iterates through each element of an object and yields a block as specified
@@ -44,6 +44,7 @@ def my_any?
     return false
 end
 
+# It returns a boolean value if any of the object in the enumerable satisfies the given condition, else it returns false.
 def my_none?
        my_each do |object|
         if yield(object) == false
@@ -53,6 +54,7 @@ def my_none?
         end
     end
 end
+
 
 def my_count
         number = 0
@@ -67,6 +69,7 @@ def my_count
             end
     end
 
+    #It returns a new array after evaluating the block with the element as an argument.
     def my_map(obj = nil)
         array = []
         my_each do |i|
@@ -75,6 +78,7 @@ def my_count
         array
       end
 
+      # It passes each element and accumulate each sequentially.
      def my_inject(accum = [0])
            my_each do |item|
              accum = yield(accum, item)

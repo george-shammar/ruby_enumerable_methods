@@ -18,3 +18,9 @@ It returns a boolean value true if all the objects in the enumerable satisfies t
 
 ### my_any?
 It returns a boolean value if any of the object in the enumerable satisfies the given condition, else it returns false.
+
+### my_map
+It returns a new array after evaluating the block with the element as an argument.
+
+### my_inject
+It passes each element and accumulate each sequentially.
