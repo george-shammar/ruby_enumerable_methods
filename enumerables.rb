@@ -7,7 +7,7 @@ module Enumerable
                 yield arr[object]
             end
     end
-    
+
     # iterates through each element in an array or hash, and extracts the element, as well as the index and will transform both the element and its index based on the code block.
     def my_each_with_index
         arr = to_a
@@ -16,6 +16,7 @@ module Enumerable
         end 
     end
 
+    # Returns a new array containing all elements of array for which the given block returns a true value.
     def my_select
         array = []
         my_each do |object|
