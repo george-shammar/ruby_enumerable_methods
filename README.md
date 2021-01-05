@@ -13,3 +13,8 @@ It iterates through each element in an array or hash, and extracts the element, 
 ### my_select
 Created to return a new array containing all elements of array for which the given block returns a true value.
 
+### my_all?
+It returns a boolean value true if all the objects in the enumerable satisfies the given condition, else it returns false.
+
+### my_any?
+It returns a boolean value if any of the object in the enumerable satisfies the given condition, else it returns false.

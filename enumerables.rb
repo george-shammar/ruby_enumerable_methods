@@ -24,7 +24,7 @@ module Enumerable
             end
         array
     end
-
+    # It returns a boolean value true if all the objects in the enumerable satisfies the given condition, else it returns false.
     def my_all?
         my_each do |object|
             if yield(object) == true
@@ -34,7 +34,7 @@ module Enumerable
            end 
         end
     end
-
+# It returns a boolean value if any of the object in the enumerable satisfies the given condition, else it returns false.
 def my_any?
          my_each do |i|
              if yield(i) == true
