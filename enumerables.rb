@@ -111,8 +111,8 @@ end
 # res3 = enu1.my_none? { |num| num > 4 }
 # puts res3
 
-# my_count
-puts [2, 4, 5, 2, 2].my_count { |i| i == 2 }
+# # my_count
+# puts [2, 4, 5, 2, 2].my_count { |i| i == 2 }
 
 # # my_map
 # test = [2, 4, 5]
