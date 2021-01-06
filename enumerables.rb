@@ -96,6 +96,9 @@ top.my_each_with_index do |company, index|
   puts "#{index}. #{company}"
 end
 
+# my_select
+puts [1, 2, 3, 4, 5, 6].my_select { |n| n.even? }
+
 puts multiply_els([2, 4, 5])
 
 my_proc = Proc.new { |x| x + 7 }
