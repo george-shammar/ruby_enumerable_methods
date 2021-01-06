@@ -98,7 +98,7 @@ end
 
 
 
-# puts multiply_els([2,4,5])
+puts multiply_els([2,4,5])
 
 my_proc = Proc.new { |x| x + 7 }
 arr = [4, 16, 9]
