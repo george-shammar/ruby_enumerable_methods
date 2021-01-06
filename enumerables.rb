@@ -1,4 +1,4 @@
-
+# rubocop:disable Style/CaseEquality
 
 module Enumerable
 
@@ -96,7 +96,7 @@ end
 
 end
 
-
+# rubocop:enable Style/CaseEquality
 
 puts multiply_els([2,4,5])
 
