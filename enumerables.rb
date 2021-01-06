@@ -1,18 +1,16 @@
 module Enumerable
-  # iterates through each element of an object and yields a block as specified
   def my_each(arr = to_a)
     arr.length.times do |object|
       yield arr[object]
     end
   end
 
-# iterates through each element in an array or hash, and extracts the element, as well as the index and will transform both the element and its index based on the code block.
-def my_each_with_index
+  def my_each_with_index
     arr = to_a
     arr.length.times do |object|
-        yield arr[object], object
+      yield arr[object], object
     end
-end
+  end
 
 # Returns a new array containing all elements of array for which the given block returns a true value.
 def my_select
