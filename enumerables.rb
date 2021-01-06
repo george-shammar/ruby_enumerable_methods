@@ -36,7 +36,7 @@ module Enumerable
         return true
       end
     end
-      return false
+    return false
   end
 
   def my_none?
@@ -52,7 +52,7 @@ module Enumerable
   def my_count
     number = 0
     arr = to_a
-      if block_given?
+    if block_given?
         my_each do |item|
           if yield(item) == true
             number += 1
@@ -84,8 +84,7 @@ module Enumerable
   end
 end
 
-
-puts multiply_els([2,4,5])
+puts multiply_els([2, 4, 5])
 
 my_proc = Proc.new { |x| x + 7 }
 arr = [4, 16, 9]
