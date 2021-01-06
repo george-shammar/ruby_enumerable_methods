@@ -1,11 +1,9 @@
-# rubocop:disable Style/CaseEquality
-
 module Enumerable
 
-#iterates through each element of an object and yields a block as specified
-def my_each(arr = to_a)
-    arr.length.times do |object|
-        yield arr[object]
+# iterates through each element of an object and yields a block as specified
+  def my_each(arr = to_a)
+  arr.length.times do |object|
+  yield arr[object]
     end
 end
 
@@ -96,7 +94,6 @@ end
 
 end
 
-# rubocop:enable Style/CaseEquality
 
 puts multiply_els([2,4,5])
 
