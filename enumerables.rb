@@ -62,7 +62,7 @@ module Enumerable
     end
   end
 
-  def my_map(obj = nil)
+  def my_map(*)
     array = []
     my_each do |i|
       array.push(yield(i))
@@ -116,11 +116,11 @@ end
 # # my_count
 # puts [2, 4, 5, 2, 2].my_count { |i| i == 2 }
 
-# my_map
-test = [2, 4, 5]
-test.my_map do |i|
-  puts i * 10
-end
+# # my_map
+# test = [2, 4, 5]
+# test.my_map do |i|
+#   puts i * 10
+# end
 
 # my_proc = proc { |x| x + 7 }
 # arr = [4, 16, 9]
