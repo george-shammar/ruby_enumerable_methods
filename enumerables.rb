@@ -90,6 +90,12 @@ end
   puts i * 5
 end
 
+#my_each_with_index
+top_10 = ["Walmart", "Exxon Mobil", "Apple"]
+top_10.my_each_with_index do | company, index |
+  puts "#{index}. #{company}"
+end
+
 puts multiply_els([2, 4, 5])
 
 my_proc = Proc.new { |x| x + 7 }
