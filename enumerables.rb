@@ -53,13 +53,13 @@ module Enumerable
     number = 0
     arr = to_a
     if block_given?
-        my_each do |item|
-          if yield(item) == true
-            number += 1
-          end
+      my_each do |item|
+        if yield(item) == true
+          number += 1
         end
-        number
       end
+      number
+    end
   end
 
   def my_map(obj = nil)
