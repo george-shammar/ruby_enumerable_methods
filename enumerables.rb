@@ -22,42 +22,31 @@ module Enumerable
 
   def my_all?
     my_each do |object|
-      if yield(object) == true
-        return true
-      else
+      return true if yield(object) == true
         return false
-      end
     end
   end
 
   def my_any?
     my_each do |i|
-      if yield(i) == true
-        return true
-      end
+      return true if yield(i) == true
     end
-    return false
+      false
   end
 
   def my_none?
     my_each do |object|
-      if yield(object) == false
-        return true
-      else
+      return true if yield(object) == false
         return false
-      end
     end
   end
 
   def my_count
     number = 0
-    arr = to_a
-    if block_given?
       my_each do |item|
         number += 1 if yield(item) == true
       end
       number
-    end
   end
 
   def my_map(*)
@@ -98,13 +87,13 @@ end
 # arry = [1, 2, 3, 4, 5, 6]
 # puts arry.my_select { |n| n.even? }
 
-# # my_all?
-# enu1 = [10, 19, 18]
-# res1 = enu1.my_all? { |num| num > 13 }
-# puts res1
+# my_all?
+enu1 = [10, 19, 18]
+res1 = enu1.my_all? { |num| num > 12 }
+puts res1
 
 # # my_any?
-# res2 = enu1.my_any? { |num| num > 13 }
+# res2 = enu1.my_any? { |num| num > 23 }
 # puts res2
 
 # # my_none?
