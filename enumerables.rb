@@ -109,12 +109,18 @@ puts res1
 res2 = enu1.my_any? { |num| num > 13 }
 puts res2
 
-#my_none?
+# my_none?
 res3 = enu1.my_none? { |num| num > 4 }
 puts res3
 
-# puts multiply_els([2, 4, 5])
+# my_count
+puts [2, 4, 5, 2, 2].my_count { |i| i == 2 }
 
-# my_proc = Proc.new { |x| x + 7 }
-# arr = [4, 16, 9]
-# puts arr.my_map(&my_proc)
+# my_map
+puts [2, 4, 5].my_map { |i|
+    i += 10
+}
+
+my_proc = Proc.new { |x| x + 7 }
+arr = [4, 16, 9]
+puts arr.my_map(&my_proc)
