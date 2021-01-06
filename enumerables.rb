@@ -102,13 +102,12 @@ puts arry.my_select { |n| n.even? }
 
 # my_all
 enu1 = [10, 19, 18]
-res1 = enu1.my_all? { |num| num>13}
+res1 = enu1.my_all? { |num| num > 13 }
 puts res1
 
 # my_any
-res2 = enu1.my_any? { |num| num>13}
+res2 = enu1.my_any? { |num| num > 13 }
 puts res2
-
 
 # puts multiply_els([2, 4, 5])
 
