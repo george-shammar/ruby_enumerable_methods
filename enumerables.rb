@@ -91,8 +91,8 @@ end
 end
 
 #my_each_with_index
-top_10 = ["Walmart", "Exxon Mobil", "Apple"]
-top_10.my_each_with_index do | company, index |
+top_10 = ['Walmart', 'Exxon Mobil', 'Apple']
+top_10.my_each_with_index do |company, index |
   puts "#{index}. #{company}"
 end
 
