@@ -49,42 +49,39 @@ module Enumerable
     end
   end
 
-def my_count
+  def my_count
     number = 0
     arr = to_a
-    if block_given?
+      if block_given?
         my_each do |item|
-            if yield(item) == true
-                number += 1
-            end
+          if yield(item) == true
+            number += 1
+          end
         end
         number
-    end
-end
+      end
+  end
 
-#It returns a new array after evaluating the block with the element as an argument.
-def my_map(obj = nil)
+  def my_map(obj = nil)
     array = []
     my_each do |i|
-        array.push(yield(i))
+      array.push(yield(i))
     end
     array
-end
+  end
 
-# It passes each element and accumulate each sequentially.
-def my_inject(accum = [0])
+  def my_inject(accum = [0])
     my_each do |item|
-        accum = yield(accum, item)
+      accum = yield(accum, item)
     end
     accum
-end
+  end
 
-def multiply_els(arr)
+  def multiply_els(arr)
     arr.my_inject(1) do |accum, item|
-        accum * item
+      accum * item
     end
-end
-
+  end
 end
 
 
