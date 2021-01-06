@@ -90,9 +90,9 @@ end
   puts i * 5
 end
 
-#my_each_with_index
-top_10 = ['Walmart', 'Exxon Mobil', 'Apple']
-top_10.my_each_with_index do |company, index |
+# my_each_with_index
+top = ['Walmart', 'Exxon Mobil', 'Apple']
+top.my_each_with_index do |company, index|
   puts "#{index}. #{company}"
 end
 
