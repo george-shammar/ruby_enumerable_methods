@@ -117,9 +117,10 @@ end
 # puts [2, 4, 5, 2, 2].my_count { |i| i == 2 }
 
 # my_map
-puts [2, 4, 5].my_map { |i|
-    i * 10
-}
+test = [2, 4, 5]
+test.my_map do |i|
+  puts i * 10
+end
 
 # my_proc = proc { |x| x + 7 }
 # arr = [4, 16, 9]
