@@ -97,10 +97,17 @@ top.my_each_with_index do |company, index|
 end
 
 # my_select
-puts [1, 2, 3, 4, 5, 6].my_select { |n| n.even? }
+arry = [1, 2, 3, 4, 5, 6]
+puts arry.my_select { |n| n.even? }
 
-puts multiply_els([2, 4, 5])
+# my_all
+enu1 = [10, 19, 18]
+res1 = enu1.all? { |num| num>4}
+puts res1
 
-my_proc = Proc.new { |x| x + 7 }
-arr = [4, 16, 9]
-puts arr.my_map(&my_proc)
+
+# puts multiply_els([2, 4, 5])
+
+# my_proc = Proc.new { |x| x + 7 }
+# arr = [4, 16, 9]
+# puts arr.my_map(&my_proc)
