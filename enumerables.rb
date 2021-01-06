@@ -24,32 +24,30 @@ module Enumerable
     my_each do |object|
       if yield(object) == true
         return true
-        else
-            return false
-        end
+      else
+        return false
+      end
     end
-end
+  end
 
-# It returns a boolean value if any of the object in the enumerable satisfies the given condition, else it returns false.
-def my_any?
+  def my_any?
     my_each do |i|
-        if yield(i) == true
-            return true
-        end
+      if yield(i) == true
+        return true
+      end
     end
-    return false
-end
+      return false
+  end
 
-# It returns a boolean value if any of the object in the enumerable satisfies the given condition, else it returns false.
-def my_none?
+  def my_none?
     my_each do |object|
-        if yield(object) == false
-            return true
-        else
-            return false
-        end
+      if yield(object) == false
+        return true
+      else
+        return false
+      end
     end
-end
+  end
 
 def my_count
     number = 0
