@@ -84,6 +84,12 @@ module Enumerable
   end
 end
 
+# Testing the enumerable methods.
+# my_each
+[1,2,3,4,5].my_each do |i|
+   puts i * 5
+end
+
 puts multiply_els([2, 4, 5])
 
 my_proc = Proc.new { |x| x + 7 }
