@@ -12,20 +12,18 @@ module Enumerable
     end
   end
 
-# Returns a new array containing all elements of array for which the given block returns a true value.
-def my_select
+  def my_select
     array = []
     my_each do |object|
-        array.push(object) if yield(object)
+      array.push(object) if yield(object)
     end
     array
-end
+  end
 
-# It returns a boolean value true if all the objects in the enumerable satisfies the given condition, else it returns false.
-def my_all?
+  def my_all?
     my_each do |object|
-        if yield(object) == true
-            return true
+      if yield(object) == true
+        return true
         else
             return false
         end
