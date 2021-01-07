@@ -28,12 +28,27 @@ module Enumerable
     array
   end
 
-  def my_all?
-    my_each do |object|
-      return true if yield(object) == true
-
-      return false
+  def my_all?(*arg)
+    if block_given?
+      my_each do |object| 
+        return false unless yield(object)
+      end
+    elsif arg[0].is_a? Class
+      my_each do |object| 
+        return false unless object.include?(arg[0])
+      end
+    elsif arg[0].is_a? Regexp
+      my_each do |object| 
+        return false unless arg[0].match(object)
+      end
+    elsif arg.empty?
+      return include?(nil) || include?(false) ? false : true
+    else
+      my_each do |object| 
+          return false unless object == arg[0]
+      end
     end
+    true
   end
 
   def my_any?
@@ -86,6 +101,3 @@ end
 my_proc = proc { |x| x + 7 }
 arr = [4, 16, 9]
 
-
-  # my_count
-  puts [2, 4, 5, 2, 2].my_count { |i| i < 2 }
