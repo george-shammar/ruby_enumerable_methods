@@ -131,3 +131,4 @@ end
 
 my_proc = proc { |x| x + 7 }
 arr = [4, 16, 9]
+arr.my_map(&my_proc)
