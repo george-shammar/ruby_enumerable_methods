@@ -1,6 +1,7 @@
 module Enumerable
   def my_each(arr = to_a)
     return enum_for (:my_each) unless block_given?
+
     arr.length.times do |object|
       yield arr[object]
     end
@@ -8,7 +9,8 @@ module Enumerable
   end
 
   def my_each_with_index
-    return enum_for (:my_each) unless block_given?
+    return enum_for (:my_each_with_index) unless block_given?
+
     arr = to_a
     arr.length.times do |object|
       yield arr[object], object
@@ -17,6 +19,8 @@ module Enumerable
   end
 
   def my_select
+    return enum_for (:my_select) unless block_given?
+
     array = []
     my_each do |object|
       array.push(object) if yield(object)
