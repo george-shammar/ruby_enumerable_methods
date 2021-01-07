@@ -61,13 +61,15 @@ module Enumerable
 
   def my_map(*)
     array = []
+    return enum_for (:my_map) unless block_given?
+
     my_each do |i|
       array.push(yield(i))
     end
     array
   end
 
-  def my_inject(accum = [0])
+  def my_inject(accum = nil)
     my_each do |item|
       accum = yield(accum, item)
     end
@@ -81,7 +83,9 @@ module Enumerable
   end
 end
 
-# my_proc = proc { |x| x + 7 }
-# arr = [4, 16, 9]
-# puts arr.my_map(&my_proc)
+my_proc = proc { |x| x + 7 }
+arr = [4, 16, 9]
 
+
+  # my_count
+  puts [2, 4, 5, 2, 2].my_count { |i| i < 2 }
