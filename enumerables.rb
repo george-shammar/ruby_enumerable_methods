@@ -1,6 +1,6 @@
 module Enumerable
   def my_each(arr = to_a)
-    return enum_for (:my_each) unless block_given?
+    return enum_for:my_each unless block_given?
 
     arr.length.times do |object|
       yield arr[object]
@@ -9,7 +9,7 @@ module Enumerable
   end
 
   def my_each_with_index
-    return enum_for (:my_each_with_index) unless block_given?
+    return enum_for:my_each_with_index unless block_given?
 
     arr = to_a
     arr.length.times do |object|
@@ -19,7 +19,7 @@ module Enumerable
   end
 
   def my_select
-    return enum_for (:my_select) unless block_given?
+    return enum_for:my_select unless block_given?
 
     array = []
     my_each do |object|
@@ -30,23 +30,15 @@ module Enumerable
 
   def my_all?(*arg)
     if block_given?
-      my_each do |object| 
-        return false unless yield(object)
-      end
+      my_each { |object| return false unless yield(object) }
     elsif arg[0].is_a? Class
-      my_each do |object| 
-        return false unless object.include?(arg[0])
-      end
+      my_each { |object| return false unless object.include?(arg[0]) }
     elsif arg[0].is_a? Regexp
-      my_each do |object| 
-        return false unless arg[0].match(object)
-      end
+      my_each { |object| return false unless arg[0].match(object) }
     elsif arg.empty?
       return include?(nil) || include?(false) ? false : true
     else
-      my_each do |object| 
-          return false unless object == arg[0]
-      end
+      my_each { |object| return false unless object == arg[0] }
     end
     true
   end
