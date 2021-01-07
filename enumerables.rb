@@ -1,6 +1,6 @@
 module Enumerable
   def my_each(arr = to_a)
-    return enum_for:my_each unless block_given?
+    return enum_for: my_each unless block_given?
 
     arr.length.times do |object|
       yield arr[object]
@@ -9,7 +9,7 @@ module Enumerable
   end
 
   def my_each_with_index
-    return enum_for:my_each_with_index unless block_given?
+    return enum_for: my_each_with_index unless block_given?
 
     arr = to_a
     arr.length.times do |object|
@@ -19,7 +19,7 @@ module Enumerable
   end
 
   def my_select
-    return enum_for:my_select unless block_given?
+    return enum_for: my_select unless block_given?
 
     array = []
     my_each do |object|
@@ -45,23 +45,23 @@ module Enumerable
 
   def my_any?(*arg)
     if block_given?
-      my_each do |object| 
+      my_each do |object|
         return true if yield(object)
       end
     elsif arg.empty?
-      my_each do |object| 
+      my_each do |object|
         return true if object
       end
     elsif arg[0].is_a? Class
-      my_each do |object| 
+      my_each do |object|
         return true if object.include?(arg[0])
       end
     elsif arg[0].is_a? Regexp
-      my_each do |object| 
+      my_each do |object|
         return true if arg[0].match(object)
       end
     else
-      my_each do |object| 
+      my_each do |object|
         return true if object == arg[0]
       end
     end
@@ -70,19 +70,19 @@ module Enumerable
 
   def my_none?(*arg)
     if block_given?
-      my_each do |object| 
+      my_each do |object|
         return false if yield(object)
       end
     elsif arg.empty?
-      my_each do |object| 
+      my_each do |object|
         return false unless object.nil? || object == false
       end
     elsif arg[0].is_a? Regexp
-      my_each do |object| 
+      my_each do |object|
         return false if arg[0].match(object)
       end
     else
-      my_each do |object| 
+      my_each do |object|
         return false if object == arg[0]
       end
     end
@@ -99,7 +99,7 @@ module Enumerable
 
   def my_map(*)
     array = []
-    return enum_for (:my_map) unless block_given?
+    return enum_for :my_map unless block_given?
 
     my_each do |i|
       array.push(yield(i))
