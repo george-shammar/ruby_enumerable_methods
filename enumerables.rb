@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
 module Enumerable
   def my_each(arr = to_a)
     return enum_for: my_each unless block_given?
@@ -121,6 +123,9 @@ module Enumerable
   end
 end
 
+
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
 my_proc = proc { |x| x + 7 }
 arr = [4, 16, 9]
 arr.my_map(&my_proc)
