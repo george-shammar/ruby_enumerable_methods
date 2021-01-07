@@ -1,15 +1,19 @@
 module Enumerable
   def my_each(arr = to_a)
+    return enum_for (:my_each) unless block_given?
     arr.length.times do |object|
       yield arr[object]
     end
+    self
   end
 
   def my_each_with_index
+    return enum_for (:my_each) unless block_given?
     arr = to_a
     arr.length.times do |object|
       yield arr[object], object
     end
+    self
   end
 
   def my_select
@@ -73,6 +77,7 @@ module Enumerable
   end
 end
 
-my_proc = proc { |x| x + 7 }
-arr = [4, 16, 9]
-puts arr.my_map(&my_proc)
+# my_proc = proc { |x| x + 7 }
+# arr = [4, 16, 9]
+# puts arr.my_map(&my_proc)
+
