@@ -47,25 +47,15 @@ module Enumerable
 
   def my_any?(*arg)
     if block_given?
-      my_each do |object|
-        return true if yield(object)
-      end
+      my_each { |object| return true if yield(object) }
     elsif arg.empty?
-      my_each do |object|
-        return true if object
-      end
+      my_each { |object| return true if object }
     elsif arg[0].is_a? Class
-      my_each do |object|
-        return true if object.include?(arg[0])
-      end
+      my_each { |object| return true if object.include?(arg[0]) }
     elsif arg[0].is_a? Regexp
-      my_each do |object|
-        return true if arg[0].match(object)
-      end
+      my_each { |object| return true if arg[0].match(object) }
     else
-      my_each do |object|
-        return true if object == arg[0]
-      end
+      my_each { |object| return true if object == arg[0] }
     end
     false
   end
@@ -122,7 +112,6 @@ module Enumerable
     end
   end
 end
-
 
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
