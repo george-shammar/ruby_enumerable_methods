@@ -51,19 +51,50 @@ module Enumerable
     true
   end
 
-  def my_any?
-    my_each do |i|
-      return true if yield(i) == true
+  def my_any?(*arg)
+    if block_given?
+      my_each do |object| 
+        return true if yield(object)
+      end
+    elsif arg.empty?
+      my_each do |object| 
+        return true if object
+      end
+    elsif arg[0].is_a? Class
+      my_each do |object| 
+        return true if object.include?(arg[0])
+      end
+    elsif arg[0].is_a? Regexp
+      my_each do |object| 
+        return true if arg[0].match(object)
+      end
+    else
+      my_each do |object| 
+        return true if object == arg[0]
+      end
     end
     false
   end
 
-  def my_none?
-    my_each do |object|
-      return true if yield(object) == false
-
-      return false
+  def my_none?(*arg)
+    if block_given?
+      my_each do |object| 
+        return false if yield(object)
+      end
+    elsif arg.empty?
+      my_each do |object| 
+        return false unless object.nil? || object == false
+      end
+    elsif arg[0].is_a? Regexp
+      my_each do |object| 
+        return false if arg[0].match(object)
+      end
+    else
+      my_each do |object| 
+        return false if object == arg[0]
+      end
     end
+    true
   end
 
   def my_count
@@ -100,4 +131,3 @@ end
 
 my_proc = proc { |x| x + 7 }
 arr = [4, 16, 9]
-
