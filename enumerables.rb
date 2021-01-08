@@ -110,14 +110,14 @@ module Enumerable
     end
     accum
   end
-
-  def multiply_els(arr)
-    arr.my_inject(1) { |accum, item| accum * item }
-  end
 end
 
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
+def multiply_els(arr)
+  arr.my_inject(1) { |accum, item| accum * item }
+end
+
 my_proc = proc { |x| x + 7 }
 arr = [4, 16, 9]
 arr.my_map(&my_proc)

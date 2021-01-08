@@ -37,9 +37,9 @@ The project was built entirely with ruby.
 
 ### George Gbenle:
 
-    Github profile: @george-shammar
-    Twitter: @GeorgeShammar
-    linkedin: George Gbenle
+    Github profile: https://github.com/george-shammar
+    Twitter: https://twitter.com/GeorgeShammar
+    linkedin: https://www.linkedin.com/in/george-g-5414091b7/
 
 ## Contributing
 
