@@ -30,32 +30,36 @@ module Enumerable
     array
   end
 
-  def my_all?(*arg)
+  def my_all?(arg = nil)
     if block_given?
       my_each { |object| return false unless yield(object) }
-    elsif arg[0].is_a? Class
-      my_each { |object| return false unless object.include?(arg[0]) }
-    elsif arg[0].is_a? Regexp
-      my_each { |object| return false unless arg[0].match(object) }
-    elsif arg.empty?
-      return include?(nil) || include?(false) ? false : true
+    elsif arg.is_a? Regexp
+      my_each { |object| return false unless object.to_s =~ arg }
+    elsif arg.is_a? Class
+      my_each { |object| return false unless object.is_a? arg }
+    elsif arg
+      my_each { |object| return false unless object == arg }
+    elsif arg.nil?
+      my_each { |object| return false unless object }
     else
-      my_each { |object| return false unless object == arg[0] }
+      my_each { |object| return false unless object }
     end
     true
   end
 
-  def my_any?(*arg)
+  def my_any?(arg = nil)
     if block_given?
       my_each { |object| return true if yield(object) }
-    elsif arg.empty?
+    elsif arg.is_a? Regexp
+      my_each { |object| return true if object.to_s =~ arg }
+    elsif arg.is_a? Class
+      my_each { |object| return true if object.is_a? arg }
+    elsif arg
+      my_each { |object| return true if object == arg }
+    elsif arg.nil?
       my_each { |object| return true if object }
-    elsif arg[0].is_a? Class
-      my_each { |object| return true if object.include?(arg[0]) }
-    elsif arg[0].is_a? Regexp
-      my_each { |object| return true if arg[0].match(object) }
     else
-      my_each { |object| return true if object == arg[0] }
+      my_each { |object| return true if object }
     end
     false
   end
@@ -81,27 +85,42 @@ module Enumerable
     true
   end
 
-  def my_count
+  def my_count(arg = nil)
     number = 0
-    my_each do |item|
-      number += 1 if yield(item) == true
+    if block_given?
+      my_each { |object| number += 1 if yield object }
+    elsif arg
+      my_each { |object| number += 1 if object == arg }
+    else
+      my_each { number += 1 }
     end
     number
   end
 
-  def my_map(*)
-    array = []
-    return enum_for :my_map unless block_given?
+  def my_map(proc = nil)
+    return enum_for (:my_map) unless block_given?
 
-    my_each do |i|
-      array.push(yield(i))
+    arr = []
+    if proc
+      my_each { |object| arr.push(proc.call(object)) }
+    else
+      my_each { |object| arr.push(yield(object)) }
     end
-    array
+    arr
   end
 
-  def my_inject(accum = nil)
-    my_each do |item|
-      accum = yield(accum, item)
+  def my_inject(*arg)
+    arg[0].is_a?(Integer) ? initial = arg[0] : symbol = arg[0]
+    if initial && !arg[1].is_a?(Integer)
+      symbol = arg[1]
+    elsif arg.nil?
+      initial = self[0]
+    end
+    accum = initial
+    if symbol
+      my_each { |object| accum = accum ? accum.send(symbol, object) : object }
+    else
+      my_each { |object| accum = accum ? yield(accum, object) : object }
     end
     accum
   end
