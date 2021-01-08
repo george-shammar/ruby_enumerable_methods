@@ -31,7 +31,7 @@ The project was built entirely with ruby.
 ## Set up and usage
 ### git clone: https://github.com/george-shammar/ruby_enumerable_methods.git
 ### cd ..ruby_enumerable_methods
-### Type ruby enumerables.rb
+### Type ruby enumerables.rb to run code.
 
 ## Author
 
