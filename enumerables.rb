@@ -2,7 +2,7 @@
 # rubocop:disable Metrics/PerceivedComplexity
 module Enumerable
   def my_each(arr = to_a)
-    return enum_for (:my_each) unless block_given?
+    return to_enum unless block_given?
 
     arr.length.times do |object|
       yield arr[object]
@@ -11,7 +11,7 @@ module Enumerable
   end
 
   def my_each_with_index
-    return enum_for (:my_each_with_index) unless block_given?
+    return to_enum unless block_given?
 
     arr = to_a
     arr.length.times do |object|
@@ -21,7 +21,7 @@ module Enumerable
   end
 
   def my_select
-    return enum_for (:my_select) unless block_given?
+    return to_enum unless block_given?
 
     array = []
     my_each do |object|
@@ -98,7 +98,7 @@ module Enumerable
   end
 
   def my_map(proc = nil)
-    return enum_for (:my_map) unless block_given?
+    return to_enum unless block_given?
 
     arr = []
     if proc
