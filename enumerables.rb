@@ -66,21 +66,13 @@ module Enumerable
 
   def my_none?(*arg)
     if block_given?
-      my_each do |object|
-        return false if yield(object)
-      end
+      my_each { |object| return false if yield(object) }
     elsif arg.empty?
-      my_each do |object|
-        return false unless object.nil? || object == false
-      end
+      my_each { |object| return false unless object.nil? || object == false }
     elsif arg[0].is_a? Regexp
-      my_each do |object|
-        return false if arg[0].match(object)
-      end
+      my_each { |object| return false if arg[0].match(object) }
     else
-      my_each do |object|
-        return false if object == arg[0]
-      end
+      my_each { |object| return false if object == arg[0] }
     end
     true
   end
