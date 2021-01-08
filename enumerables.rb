@@ -4,9 +4,7 @@ module Enumerable
   def my_each(arr = to_a)
     return to_enum unless block_given?
 
-    arr.length.times do |object|
-      yield arr[object]
-    end
+    arr.length.times { |object| yield arr[object] }
     self
   end
 
@@ -14,9 +12,7 @@ module Enumerable
     return to_enum unless block_given?
 
     arr = to_a
-    arr.length.times do |object|
-      yield arr[object], object
-    end
+    arr.length.times { |object| yield arr[object], object }
     self
   end
 
@@ -24,9 +20,7 @@ module Enumerable
     return to_enum unless block_given?
 
     array = []
-    my_each do |object|
-      array.push(object) if yield(object)
-    end
+    my_each { |object| array.push(object) if yield(object) }
     array
   end
 
@@ -118,9 +112,7 @@ module Enumerable
   end
 
   def multiply_els(arr)
-    arr.my_inject(1) do |accum, item|
-      accum * item
-    end
+    arr.my_inject(1) { |accum, item| accum * item }
   end
 end
 
