@@ -1,9 +1,10 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
 module Enumerable
-  def my_each(arr = to_a)
+  def my_each
     return to_enum unless block_given?
 
+    arr = to_a
     arr.length.times { |object| yield arr[object] }
     self
   end
@@ -12,7 +13,7 @@ module Enumerable
     return to_enum unless block_given?
 
     arr = to_a
-    arr.length.times { |object| yield arr[object], object }
+    arr.length.times { |object, index| yield arr[object], object }
     self
   end
 
@@ -114,10 +115,10 @@ end
 
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
-def multiply_els(arr)
-  arr.my_inject(1) { |accum, item| accum * item }
-end
+# def multiply_els(arr)
+#   arr.my_inject(1) { |accum, item| accum * item }
+# end
 
-my_proc = proc { |x| x + 7 }
+my_proc = proc { |x| puts x + 7 }
 arr = [4, 16, 9]
 arr.my_map(&my_proc)
